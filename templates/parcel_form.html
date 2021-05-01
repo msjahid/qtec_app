@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group col-md-6 mb-0">
+                {{ form.merchant|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+                {{ form.product_type|as_crispy_field }}
+            </div>
+        </div>
+        {{ form.invoice_id|as_crispy_field }}
+        <div class="form-row">
+            <div class="form-group col-md-4 mb-0">
+                {{ form.location|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-4 mb-0">
+                {{ form.quantity|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-4 mb-0">
+                {{ form.cost|as_crispy_field }}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Save parcel</button>
+    </form>
+{% endblock %}
